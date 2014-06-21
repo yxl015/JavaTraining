@@ -1,0 +1,55 @@
+//This is in a seperate file
+
+package ExecptionHandleing;
+
+class MyException extends Exception {
+	
+	//empty constructor
+	public MyException()
+	{
+		
+	}
+	
+	public MyException(String s)
+	{
+		super(s);
+	}
+}
+
+//This is in a seperate file
+
+package ExecptionHandleing;
+
+public class Exception1 {
+	public String score(int sc) throws MyException
+	{
+		if(sc>=0 && sc<=100)
+		{
+			return "normal";
+		}
+		else
+		{
+			throw new MyException("Wrong number");
+		}
+	}
+	
+	public static void main(String[] args) {
+		Exception1 ex = new Exception1();
+		
+		try
+		{
+			String s = ex.score(50);
+			System.out.println(s);
+			
+			String ss = ex.score(150);
+			System.out.println(ss);
+		}
+		
+		catch(MyException a)
+		{
+			System.out.println("Exception Message is: " + a.getMessage());
+		}
+
+	}
+
+}
